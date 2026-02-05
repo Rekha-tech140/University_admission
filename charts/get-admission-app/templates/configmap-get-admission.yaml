@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+data:
+  MONGODB_URI: "{{ .Values.getAdmissionApp.env.MONGODB_URI }}"
+  PORT: "{{ .Values.getAdmissionApp.env.PORT }}"
+  HOST: "{{ .Values.getAdmissionApp.env.HOST }}"
+  NODE_ENV: "{{ .Values.getAdmissionApp.env.NODE_ENV }}"
