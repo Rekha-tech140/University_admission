@@ -3,7 +3,7 @@ trigger:
 
 variables:
   imageName: get-admission-app
-  acrLoginServer: getadmissionacr.azurecr.io
+  acrLoginServer: rekhaacr.azurecr.io
   tag: $(Build.BuildId)
 
 pool:
@@ -19,7 +19,7 @@ steps:
     command: buildAndPush
     repository: $(imageName)
     dockerfile: Dockerfile
-    containerRegistry: get-admission-app-ACR
+    containerRegistry: Acr
     tags: |
       $(tag)
 
@@ -51,7 +51,7 @@ steps:
     git commit -m "Update app image tag to $(tag)"
 
     # Use tokenized origin to avoid interactive auth
-    git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/sudipti1234/University_admission_portal.git"
+    git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/Rekha-tech140/University_admission.git"
     git push origin azure-devops
   displayName: Update ONLY app image tag
   env:
